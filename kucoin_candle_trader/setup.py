@@ -6,9 +6,9 @@ setup(
     description='A library for live data updates and fetching spot data from KuCoin',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    author='Your Name',
-    author_email='your.email@example.com',
-    url='https://github.com/yourusername/kucoin_candle_trader',  # Update with your repository URL
+    author='Andre',
+    author_email='receivemailforme@gmail.com',
+    url='https://github.com/gigishub/kucoin_candle_trader',  # Update with your repository URL
     packages=find_packages(),
     install_requires=[
         'pandas>=1.0.0',

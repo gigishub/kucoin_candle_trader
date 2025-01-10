@@ -1,3 +1,3 @@
-from .live_data_update import LiveDataUpdater
-from .fetch_spot import KuCoinDataFetcher
-from .ws_websocket_lib import KucoinCandlestickWebSocket
+from .live_data_update import CandleUpdate
+from .kucoin_fetch_spot import SpotDataFetcher
+from .kucoin_websocket import KucoinCandlestickWebSocket
