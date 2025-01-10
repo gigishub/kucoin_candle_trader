@@ -87,31 +87,12 @@ class KucoinCandlestickWebSocket:
         ws_thread.daemon = True
         ws_thread.start()
 
-    def refresh_token_inline(self):
-        """Attempt to refresh token without disconnecting"""
-        try:
-            new_token = self.get_token()
-            refresh_message = {
-                "type": "update_token",
-                "newToken": new_token
-            }
-            self.ws.send(json.dumps(refresh_message))
-            self.token_timestamp = time.time()
-            logger.info("Token refreshed inline successfully")
-            return True
-        except Exception as e:
-            logger.error(f"Inline token refresh failed: {e}")
-            return False
-
     def refresh_connection(self):
         """Refresh connection with new token"""
         if time.time() - self.token_timestamp >= self.token_refresh_interval:
-            # Try inline refresh first
-            if not self.refresh_token_inline():
-                # Fall back to full reconnection if inline refresh fails
-                logger.info("Falling back to full reconnection")
-                self.stop()
-                self.start()
+            logger.info("Refreshing connection")
+            self.stop()
+            self.start()
 
     def stop(self):
         self.running = False
