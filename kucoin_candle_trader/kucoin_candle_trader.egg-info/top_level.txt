@@ -1,1 +1,0 @@
-kucoin_candle_spot
